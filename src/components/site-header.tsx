@@ -2,6 +2,8 @@ import Link from "next/link";
 import { NavLink } from "@/components/nav-link";
 import { site } from "@/lib/site";
 
+const courseHref = "/course#enrol";
+
 const links = [
   { href: "/learn", label: "Free lessons" },
   { href: "/course", label: "The course" },
@@ -28,15 +30,15 @@ export function SiteHeader() {
             </NavLink>
           ))}
         </nav>
-        <Link
-          href="/course#enrol"
+        <a
+          href={courseHref}
           className="inline-flex min-h-11 items-center justify-center justify-self-end bg-brick px-4 text-sm font-semibold text-paper hover:bg-brick-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink sm:text-base"
         >
           <span className="sm:hidden">{site.priceLabel} course</span>
           <span className="hidden sm:inline">
             Get the course — {site.priceLabel}
           </span>
-        </Link>
+        </a>
       </div>
     </header>
   );
