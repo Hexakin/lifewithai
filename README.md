@@ -34,13 +34,17 @@ Point `lifewithai.co.uk` and `lifewithai.uk` at the Vercel project when DNS is r
 
 Checkout is a preview. The “Get the course — £39” button scrolls to an email form that stays in the browser. It does not store addresses or take payment.
 
+## Design
+
+Warm paper, ink navy, one tomato accent and a highlighter yellow. Headings use Young Serif; body text uses Atkinson Hyperlegible Next, a face designed for low-vision readers, with Atkinson Hyperlegible Mono for labels and example prompts. The colour tokens live in `src/app/globals.css`; shared pieces (buttons, eyebrows, step badges, the container) are in `src/components/ui.tsx`.
+
 ## Routes
 
 | Path | Page |
 | --- | --- |
 | `/` | Home |
-| `/course` | Course sales, FAQ, checkout preview |
-| `/modules` | Four-module overview |
+| `/course` | Course sales, the four modules, FAQ, checkout preview |
+| `/modules` | Permanent redirect to `/course` |
 | `/learn` | Free lesson index |
 | `/learn/first-month-with-ai` | Module 1 lesson |
 | `/learn/work-home-and-money` | Module 2 lesson |

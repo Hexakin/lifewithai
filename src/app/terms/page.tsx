@@ -1,3 +1,4 @@
+import { container, Eyebrow } from "@/components/ui";
 import { pageMeta } from "@/lib/metadata";
 import { site } from "@/lib/site";
 
@@ -10,17 +11,16 @@ export const metadata = pageMeta({
 
 export default function TermsPage() {
   return (
-    <article className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
-      <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brick">
-        Draft
-      </p>
-      <h1 className="mt-4 font-serif text-4xl tracking-tight text-ink sm:text-5xl">
+    <article className={`${container} py-14 lg:py-24`}>
+      <div className="max-w-3xl">
+      <Eyebrow>Draft</Eyebrow>
+      <h1 className="mt-4 font-serif text-[2.875rem] leading-[1.04] tracking-[-0.02em] sm:text-6xl">
         Terms
       </h1>
-      <p className="mt-4 text-sm text-ink-soft">Last updated 24 September 2026</p>
-      <div className="mt-8 space-y-8 text-lg leading-relaxed text-ink">
+      <p className="mt-5 font-mono text-sm text-ink-soft">Last updated 24 September 2026</p>
+      <div className="mt-10 space-y-10 border-t-2 border-ink pt-10 text-lg leading-[1.7] lg:text-xl">
         <section>
-          <h2 className="font-serif text-2xl">The site and the course</h2>
+          <h2 className="font-serif text-[1.75rem] leading-[1.15] lg:text-[2rem]">The site and the course</h2>
           <p className="mt-3">
             Life with AI offers free lessons and a self-paced starter course
             priced at {site.priceLabel}. These pages are a draft for{" "}
@@ -29,7 +29,7 @@ export default function TermsPage() {
           </p>
         </section>
         <section>
-          <h2 className="font-serif text-2xl">What you are buying, later</h2>
+          <h2 className="font-serif text-[1.75rem] leading-[1.15] lg:text-[2rem]">What you are buying, later</h2>
           <p className="mt-3">
             When payment is live, the course will be a one-off digital
             purchase for your own learning. It is not a live class, a
@@ -39,7 +39,7 @@ export default function TermsPage() {
           </p>
         </section>
         <section>
-          <h2 className="font-serif text-2xl">Not professional advice</h2>
+          <h2 className="font-serif text-[1.75rem] leading-[1.15] lg:text-[2rem]">Not professional advice</h2>
           <p className="mt-3">
             Lessons are general education. They are not financial, medical,
             legal, or employment advice. You check important facts yourself,
@@ -48,7 +48,7 @@ export default function TermsPage() {
           </p>
         </section>
         <section>
-          <h2 className="font-serif text-2xl">Using the pages</h2>
+          <h2 className="font-serif text-[1.75rem] leading-[1.15] lg:text-[2rem]">Using the pages</h2>
           <p className="mt-3">
             You may read the free lessons for your own use. Please do not copy
             the course materials to resell them. These draft terms are written
@@ -60,6 +60,7 @@ export default function TermsPage() {
             with questions.
           </p>
         </section>
+      </div>
       </div>
     </article>
   );

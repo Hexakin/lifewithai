@@ -1,44 +1,37 @@
 import Link from "next/link";
+import { Logo } from "@/components/logo";
+import { MobileMenu } from "@/components/mobile-menu";
 import { NavLink } from "@/components/nav-link";
+import { button, container } from "@/components/ui";
 import { site } from "@/lib/site";
-
-const courseHref = "/course#enrol";
 
 const links = [
   { href: "/learn", label: "Free lessons" },
   { href: "/course", label: "The course" },
-  { href: "/modules", label: "Modules" },
-];
+] as const;
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper">
-      <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto] items-center gap-x-4 gap-y-3 px-4 py-3 sm:px-6 md:grid-cols-[auto_1fr_auto]">
-        <Link
-          href="/"
-          className="font-serif text-xl tracking-tight text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brick"
-        >
-          {site.name}
-        </Link>
-        <nav
-          aria-label="Primary"
-          className="col-span-2 flex flex-wrap gap-x-5 gap-y-2 text-base md:col-span-1 md:justify-end"
-        >
+      <div
+        className={`${container} relative flex h-16 items-center gap-3 lg:h-22`}
+      >
+        <Logo />
+        <div className="flex-1" />
+        <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
           {links.map((link) => (
             <NavLink key={link.href} href={link.href}>
               {link.label}
             </NavLink>
           ))}
         </nav>
-        <a
-          href={courseHref}
-          className="inline-flex min-h-11 items-center justify-center justify-self-end bg-brick px-4 text-sm font-semibold text-paper hover:bg-brick-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink sm:text-base"
+        <Link
+          href="/course#enrol"
+          className={`${button.ink} ml-4 min-h-13 px-[1.375rem] max-md:hidden`}
         >
-          <span className="sm:hidden">{site.priceLabel} course</span>
-          <span className="hidden sm:inline">
-            Get the course — {site.priceLabel}
-          </span>
-        </a>
+          Get the course — {site.priceLabel}
+        </Link>
+        <MobileMenu links={links} />
       </div>
     </header>
   );
