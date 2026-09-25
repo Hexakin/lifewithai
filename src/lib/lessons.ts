@@ -3,6 +3,10 @@ import { modules } from "@/lib/modules";
 export type LessonSection = {
   heading: string;
   paragraphs: string[];
+  /** A request to show in a card after the paragraphs. */
+  example?: string;
+  /** Show the broadband before-and-after cards after the paragraphs. */
+  showPromptExample?: boolean;
 };
 
 export type Lesson = {
@@ -191,8 +195,9 @@ export const lessons: Lesson[] = [
         heading: "Say what you are doing",
         paragraphs: [
           "A chat has no idea whether you are writing to your manager, your landlord, or your aunt. One or two sentences of context change the answer more than any clever trick.",
-          "Example: “I am a parent writing to a school about a missed club. I want to sound calm and brief.”",
         ],
+        example:
+          "I am a parent writing to a school about a missed club. I want to sound calm and brief.",
       },
       {
         heading: "Say what you want back",
@@ -210,9 +215,9 @@ export const lessons: Lesson[] = [
       {
         heading: "A before and after",
         paragraphs: [
-          "Before: “Write a complaint about my broadband.” You will get a generic letter with fake details.",
-          "After: “Write a short email to my broadband provider. The service has dropped every evening this week. I want them to book an engineer. Keep it under 120 words. Do not invent account numbers or dates. Polite, firm, no jokes.” You will get a draft you can finish in a few minutes.",
+          "The same request, asked two ways. The second one says what you are doing, what you want back, and the limits.",
         ],
+        showPromptExample: true,
       },
     ],
     tryThis:
@@ -258,6 +263,11 @@ export const lessons: Lesson[] = [
       "Open the last thing you were tempted to paste into a chat. Cross out every name, number, and address. See if the question still makes sense. If it does, paste the crossed-out version only.",
   },
 ];
+
+/** Lessons in course order: by module, then as listed. */
+export const lessonsByModule = [...lessons].sort(
+  (a, b) => a.moduleNumber - b.moduleNumber,
+);
 
 export function getLesson(slug: string) {
   return lessons.find((lesson) => lesson.slug === slug);

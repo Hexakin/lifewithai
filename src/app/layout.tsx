@@ -1,19 +1,32 @@
 import type { Metadata } from "next";
-import { Fraunces, Source_Sans_3 } from "next/font/google";
+import {
+  Atkinson_Hyperlegible_Mono,
+  Atkinson_Hyperlegible_Next,
+  Young_Serif,
+} from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const sourceSans = Source_Sans_3({
+// Atkinson Hyperlegible is designed for low-vision readers; Young Serif is
+// the display face for headings.
+const atkinson = Atkinson_Hyperlegible_Next({
   subsets: ["latin"],
-  variable: "--font-source-sans",
+  variable: "--font-atkinson",
   display: "swap",
 });
 
-const fraunces = Fraunces({
+const atkinsonMono = Atkinson_Hyperlegible_Mono({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-atkinson-mono",
+  display: "swap",
+});
+
+const youngSerif = Young_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-young-serif",
   display: "swap",
 });
 
@@ -53,12 +66,12 @@ export default function RootLayout({
   return (
     <html
       lang="en-GB"
-      className={`${sourceSans.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${atkinson.variable} ${atkinsonMono.variable} ${youngSerif.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-paper focus:px-4 focus:py-2 focus:text-ink"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-highlight focus:px-4 focus:py-2 focus:font-bold focus:text-ink"
         >
           Skip to content
         </a>

@@ -2,31 +2,51 @@
 
 :root {
   color-scheme: light;
-  --paper: #f3eee4;
-  --paper-raised: #faf7f1;
-  --ink: #1c1915;
-  --ink-soft: #4e483f;
-  --line: #ddd4c4;
-  --brick: #8c3429;
-  --brick-deep: #6f291f;
-  --moss: #243f33;
-  --moss-soft: #e4eee7;
-  --sand: #efe2c8;
+  --paper: #f5f1e8;
+  --card: #fffdf8;
+  --sand: #e9e1cf;
+  --ink: #1b2433;
+  --ink-soft: #4a5263;
+  --line: #dcd5c6;
+  --rule: #c9c0ae;
+  --tomato: #c8421f;
+  --tomato-deep: #a8341a;
+  --highlight: #f7dd72;
+  --highlight-soft: #fbedb0;
+  --navy-raised: #243044;
+  --navy-line: #3a4760;
+  --on-navy: #f5f1e8;
+  --on-navy-soft: #d5dae2;
+  --on-navy-muted: #b9c0cc;
 }
 
 @theme inline {
   --color-paper: var(--paper);
-  --color-paper-raised: var(--paper-raised);
+  --color-card: var(--card);
+  --color-sand: var(--sand);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-line: var(--line);
-  --color-brick: var(--brick);
-  --color-brick-deep: var(--brick-deep);
-  --color-moss: var(--moss);
-  --color-moss-soft: var(--moss-soft);
-  --color-sand: var(--sand);
-  --font-sans: var(--font-source-sans), "Source Sans 3", "Segoe UI", sans-serif;
-  --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --color-rule: var(--rule);
+  --color-tomato: var(--tomato);
+  --color-tomato-deep: var(--tomato-deep);
+  --color-highlight: var(--highlight);
+  --color-highlight-soft: var(--highlight-soft);
+  --color-navy-raised: var(--navy-raised);
+  --color-navy-line: var(--navy-line);
+  --color-on-navy: var(--on-navy);
+  --color-on-navy-soft: var(--on-navy-soft);
+  --color-on-navy-muted: var(--on-navy-muted);
+  --font-sans:
+    var(--font-atkinson), "Atkinson Hyperlegible Next", system-ui, sans-serif;
+  --font-serif: var(--font-young-serif), Georgia, "Times New Roman", serif;
+  --font-mono:
+    var(--font-atkinson-mono), "Atkinson Hyperlegible Mono", ui-monospace,
+    monospace;
+}
+
+html {
+  scroll-padding-top: 6rem;
 }
 
 body {
@@ -36,11 +56,44 @@ body {
 }
 
 ::selection {
-  background: #e7c9b8;
+  background: var(--highlight);
   color: var(--ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--brick);
+  outline: 3px solid var(--tomato);
   outline-offset: 3px;
+}
+
+summary {
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* A highlighter stroke behind a phrase in a heading. */
+@utility highlight-mark {
+  background: linear-gradient(
+    transparent 60%,
+    var(--highlight) 60%,
+    var(--highlight) 90%,
+    transparent 90%
+  );
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Notebook ruling that sits under each line of text. Set --lined-rule to recolour. */
+@utility lined {
+  line-height: 2.125rem;
+  background-origin: content-box;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(2.125rem - 1px),
+    var(--lined-rule, #e6dfd0) calc(2.125rem - 1px),
+    var(--lined-rule, #e6dfd0) 2.125rem
+  );
 }

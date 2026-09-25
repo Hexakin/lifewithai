@@ -14,12 +14,16 @@ const LEGACY_HOSTS = [
 
 const nextConfig: NextConfig = {
   async redirects() {
-    return LEGACY_HOSTS.map((host) => ({
-      source: "/:path*",
-      has: [{ type: "host" as const, value: host }],
-      destination: `${CANONICAL_ORIGIN}/:path*`,
-      permanent: true,
-    }));
+    return [
+      ...LEGACY_HOSTS.map((host) => ({
+        source: "/:path*",
+        has: [{ type: "host" as const, value: host }],
+        destination: `${CANONICAL_ORIGIN}/:path*`,
+        permanent: true,
+      })),
+      // The module overview now lives on the course page.
+      { source: "/modules", destination: "/course", permanent: true },
+    ];
   },
 };
 

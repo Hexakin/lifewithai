@@ -20,10 +20,8 @@ export function NavLink({
     <Link
       href={href}
       aria-current={active ? "page" : undefined}
-      className={`underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brick ${
-        active
-          ? "text-ink underline decoration-brick decoration-2"
-          : "text-ink-soft"
+      className={`rounded-full px-[1.125rem] py-2.5 text-lg font-semibold text-ink no-underline transition-colors ${
+        active ? "bg-sand" : "hover:bg-sand/60"
       }`}
     >
       {children}
