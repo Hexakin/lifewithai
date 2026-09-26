@@ -63,7 +63,7 @@ export default function OpenGraphImage() {
             color: "#4a5263",
           }}
         >
-          A calm starter course · £39 · Free lessons to read first
+          Free plain-English lessons · Simple apps for everyday life
         </div>
       </div>
     ),

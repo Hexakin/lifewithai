@@ -21,8 +21,9 @@ const nextConfig: NextConfig = {
         destination: `${CANONICAL_ORIGIN}/:path*`,
         permanent: true,
       })),
-      // The module overview now lives on the course page.
-      { source: "/modules", destination: "/course", permanent: true },
+      // The paid course was withdrawn; its free lessons live on under /learn.
+      { source: "/course", destination: "/learn", permanent: true },
+      { source: "/modules", destination: "/learn", permanent: true },
     ];
   },
 };

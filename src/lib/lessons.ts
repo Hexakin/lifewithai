@@ -1,5 +1,3 @@
-import { modules } from "@/lib/modules";
-
 export type LessonSection = {
   heading: string;
   paragraphs: string[];
@@ -13,7 +11,6 @@ export type Lesson = {
   slug: string;
   title: string;
   description: string;
-  moduleNumber: (typeof modules)[number]["number"];
   readingMinutes: number;
   dek: string;
   sections: LessonSection[];
@@ -21,12 +18,52 @@ export type Lesson = {
 };
 
 export const lessons: Lesson[] = [
+  // In reading order: each lesson links to the next.
+  {
+    slug: "how-to-ask-for-a-useful-answer",
+    title: "How to ask for a useful answer",
+    description:
+      "A simple way to ask: context, the job, the shape of the answer, and the limits. Includes a before and after.",
+    readingMinutes: 4,
+    dek: "You do not need a magic sentence. You need to say what you are doing, what you want back, and what the answer must not do.",
+    sections: [
+      {
+        heading: "Say what you are doing",
+        paragraphs: [
+          "A chat has no idea whether you are writing to your manager, your landlord, or your aunt. One or two sentences of context change the answer more than any clever trick.",
+        ],
+        example:
+          "I am a parent writing to a school about a missed club. I want to sound calm and brief.",
+      },
+      {
+        heading: "Say what you want back",
+        paragraphs: [
+          "Ask for a shape. A five-line email. Three options. A checklist. A table. “Help me with this” is how you get a lecture. “Give me a five-line email I can edit” is how you get something you can use.",
+        ],
+      },
+      {
+        heading: "Give the limits",
+        paragraphs: [
+          "Say what to leave out, how long it should be, and which facts are fixed. If a number, date, or name matters, put it in yourself and tell the chat not to invent the rest.",
+          "Then read the answer once for tone and once for facts. If something looks smooth and specific, and you did not supply it, check it.",
+        ],
+      },
+      {
+        heading: "A before and after",
+        paragraphs: [
+          "The same request, asked two ways. The second one says what you are doing, what you want back, and the limits.",
+        ],
+        showPromptExample: true,
+      },
+    ],
+    tryThis:
+      "Take a vague request you might have typed, and rewrite it with context, the shape of the answer, and one limit. Use the rewritten version.",
+  },
   {
     slug: "first-month-with-ai",
     title: "Your first month with AI",
     description:
       "A plain four-week rhythm so AI becomes a small daily habit, rather than a project you keep postponing.",
-    moduleNumber: 1,
     readingMinutes: 4,
     dek: "You do not need a stack of new apps. You need one chat, one real task a day, and a note of what actually helped.",
     sections: [
@@ -63,11 +100,48 @@ export const lessons: Lesson[] = [
       "Today, take one message you need to send. Ask the chat for a first draft in your own words. Edit it until it sounds like you, then send the edited version, not the raw draft.",
   },
   {
+    slug: "what-to-keep-private",
+    title: "What to keep private",
+    description:
+      "A plain checklist for what not to paste into an AI chat, at work and at home.",
+    readingMinutes: 4,
+    dek: "Treat the chat like a postcard. Useful, quick, and not the place for secrets.",
+    sections: [
+      {
+        heading: "A postcard, not a locked drawer",
+        paragraphs: [
+          "Assume that what you paste could be stored, seen by the company that runs the tool, or used to improve their systems, depending on the settings. You do not need to understand the paperwork to act sensibly. If you would not want it read back to you in a waiting room, leave it out.",
+        ],
+      },
+      {
+        heading: "Do not paste these",
+        paragraphs: [
+          "Passwords, codes from your bank, full card numbers, National Insurance numbers, passport or driving licence details, medical records, and precise home addresses when they are not needed for the task.",
+          "Also leave out other people’s private information: a colleague’s salary, a child’s full name and school, a friend’s health. You can often describe the situation without the identifying details. “A pupil in my child’s class” is enough for a draft. The full name is not.",
+        ],
+      },
+      {
+        heading: "Work account and home account",
+        paragraphs: [
+          "If your employer provides an AI tool, use that for work, and follow their rules. Use a personal chat for personal life. Mixing the two is how a private note ends up in the wrong place.",
+          "Before you paste a document, delete the header if it has names, reference numbers, or addresses you do not need help with.",
+        ],
+      },
+      {
+        heading: "A thirty-second check",
+        paragraphs: [
+          "Before you press send, scan for names, numbers, and addresses. Remove what the chat does not need in order to help. Ask the question in general terms when you can. “What should I look for in a phone contract?” is safer than pasting the contract with your account details still on it.",
+        ],
+      },
+    ],
+    tryThis:
+      "Open the last thing you were tempted to paste into a chat. Cross out every name, number, and address. See if the question still makes sense. If it does, paste the crossed-out version only.",
+  },
+  {
     slug: "work-home-and-money",
     title: "AI for work, home, and money",
     description:
       "Plain examples for emails, household admin, and money questions, with a clear line around private details.",
-    moduleNumber: 2,
     readingMinutes: 5,
     dek: "The useful jobs are ordinary: a clearer email, a week of meals, a first pass at comparing two quotes. You still make the decision.",
     sections: [
@@ -107,7 +181,6 @@ export const lessons: Lesson[] = [
     title: "Catch up this week, without the shame",
     description:
       "A five-day catch-up for people who feel late to AI, with a short list of what you can safely ignore.",
-    moduleNumber: 3,
     readingMinutes: 4,
     dek: "Most people are still working out the basics. Feeling behind is common. It is not a measure of your ability.",
     sections: [
@@ -147,7 +220,6 @@ export const lessons: Lesson[] = [
     title: "Save hours with three small habits",
     description:
       "Three repeatable habits that give time back: draft then edit, summarise then decide, and reuse a prompt that worked.",
-    moduleNumber: 4,
     readingMinutes: 4,
     dek: "Hours come back from tasks you already repeat. They do not come from a new app every Monday.",
     sections: [
@@ -182,97 +254,8 @@ export const lessons: Lesson[] = [
     tryThis:
       "Choose one repeating task from this week. Write the request once, save it in your notes, and use it twice before you change it.",
   },
-  {
-    slug: "how-to-ask-for-a-useful-answer",
-    title: "How to ask for a useful answer",
-    description:
-      "A simple way to ask: context, the job, the shape of the answer, and the limits. Includes a before and after.",
-    moduleNumber: 1,
-    readingMinutes: 4,
-    dek: "You do not need a magic sentence. You need to say what you are doing, what you want back, and what the answer must not do.",
-    sections: [
-      {
-        heading: "Say what you are doing",
-        paragraphs: [
-          "A chat has no idea whether you are writing to your manager, your landlord, or your aunt. One or two sentences of context change the answer more than any clever trick.",
-        ],
-        example:
-          "I am a parent writing to a school about a missed club. I want to sound calm and brief.",
-      },
-      {
-        heading: "Say what you want back",
-        paragraphs: [
-          "Ask for a shape. A five-line email. Three options. A checklist. A table. “Help me with this” is how you get a lecture. “Give me a five-line email I can edit” is how you get something you can use.",
-        ],
-      },
-      {
-        heading: "Give the limits",
-        paragraphs: [
-          "Say what to leave out, how long it should be, and which facts are fixed. If a number, date, or name matters, put it in yourself and tell the chat not to invent the rest.",
-          "Then read the answer once for tone and once for facts. If something looks smooth and specific, and you did not supply it, check it.",
-        ],
-      },
-      {
-        heading: "A before and after",
-        paragraphs: [
-          "The same request, asked two ways. The second one says what you are doing, what you want back, and the limits.",
-        ],
-        showPromptExample: true,
-      },
-    ],
-    tryThis:
-      "Take a vague request you might have typed, and rewrite it with context, the shape of the answer, and one limit. Use the rewritten version.",
-  },
-  {
-    slug: "what-to-keep-private",
-    title: "What to keep private",
-    description:
-      "A plain checklist for what not to paste into an AI chat, at work and at home.",
-    moduleNumber: 2,
-    readingMinutes: 4,
-    dek: "Treat the chat like a postcard. Useful, quick, and not the place for secrets.",
-    sections: [
-      {
-        heading: "A postcard, not a locked drawer",
-        paragraphs: [
-          "Assume that what you paste could be stored, seen by the company that runs the tool, or used to improve their systems, depending on the settings. You do not need to understand the paperwork to act sensibly. If you would not want it read back to you in a waiting room, leave it out.",
-        ],
-      },
-      {
-        heading: "Do not paste these",
-        paragraphs: [
-          "Passwords, codes from your bank, full card numbers, National Insurance numbers, passport or driving licence details, medical records, and precise home addresses when they are not needed for the task.",
-          "Also leave out other people’s private information: a colleague’s salary, a child’s full name and school, a friend’s health. You can often describe the situation without the identifying details. “A pupil in my child’s class” is enough for a draft. The full name is not.",
-        ],
-      },
-      {
-        heading: "Work account and home account",
-        paragraphs: [
-          "If your employer provides an AI tool, use that for work, and follow their rules. Use a personal chat for personal life. Mixing the two is how a private note ends up in the wrong place.",
-          "Before you paste a document, delete the header if it has names, reference numbers, or addresses you do not need help with.",
-        ],
-      },
-      {
-        heading: "A thirty-second check",
-        paragraphs: [
-          "Before you press send, scan for names, numbers, and addresses. Remove what the chat does not need in order to help. Ask the question in general terms when you can. “What should I look for in a phone contract?” is safer than pasting the contract with your account details still on it.",
-        ],
-      },
-    ],
-    tryThis:
-      "Open the last thing you were tempted to paste into a chat. Cross out every name, number, and address. See if the question still makes sense. If it does, paste the crossed-out version only.",
-  },
 ];
-
-/** Lessons in course order: by module, then as listed. */
-export const lessonsByModule = [...lessons].sort(
-  (a, b) => a.moduleNumber - b.moduleNumber,
-);
 
 export function getLesson(slug: string) {
   return lessons.find((lesson) => lesson.slug === slug);
-}
-
-export function getLessonModule(lesson: Lesson) {
-  return modules.find((module) => module.number === lesson.moduleNumber);
 }

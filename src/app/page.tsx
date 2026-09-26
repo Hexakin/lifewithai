@@ -1,13 +1,14 @@
 import Link from "next/link";
+import { AppCard } from "@/components/app-card";
 import { ArrowIcon, CheckIcon } from "@/components/icons";
 import { JsonLd } from "@/components/json-ld";
 import { LessonCard } from "@/components/lesson-card";
+import { NewsletterBand } from "@/components/newsletter-band";
 import { PromptExample } from "@/components/prompt-example";
 import { ArrowLink, button, container, Eyebrow } from "@/components/ui";
-import { courseIncludes } from "@/lib/course";
-import { lessonsByModule } from "@/lib/lessons";
+import { apps } from "@/lib/apps";
+import { lessons } from "@/lib/lessons";
 import { pageMeta } from "@/lib/metadata";
-import { modules } from "@/lib/modules";
 import { site } from "@/lib/site";
 
 export const metadata = pageMeta({
@@ -17,7 +18,7 @@ export const metadata = pageMeta({
   path: "/",
 });
 
-const reassurances = ["No coding", "Nothing to install", "Your own pace"];
+const reassurances = ["Free to read", "No coding", "No sign-up"];
 
 const audience = [
   {
@@ -30,11 +31,11 @@ const audience = [
   },
   {
     title: "You want something usable this month",
-    text: "Short lessons you can read today, then the full course when you want the whole path.",
+    text: "Short lessons you can read today and try tomorrow, each one useful on its own.",
   },
 ];
 
-// The five-day catch-up from module 3's free lesson.
+// The five-day catch-up from the "Catch up this week" lesson.
 const catchUpDays = [
   "Ask it to explain a news story you already know. Compare it with what you remember.",
   "Draft a message you actually need to send. Then edit it until it sounds like you.",
@@ -85,27 +86,27 @@ export default function HomePage() {
         <div>
           <Eyebrow className="flex items-center gap-2.5">
             <span aria-hidden="true" className="size-2.5 rounded-full bg-tomato" />
-            A starter course for the UK &amp; Europe
+            Free help for the UK &amp; Europe
           </Eyebrow>
           <h1 className="mt-5 font-serif text-[2.875rem] leading-[1.04] tracking-[-0.02em] sm:text-6xl lg:mt-7 lg:text-[5rem] lg:leading-[1.02]">
             Get comfortable with AI in{" "}
             <span className="highlight-mark">ordinary life</span>.
           </h1>
           <p className="mt-5 max-w-[37.5rem] text-lg leading-relaxed text-ink-soft sm:text-xl lg:mt-7 lg:text-[1.375rem]">
-            A calm starter course for work, home and money. Plain English, your
-            own pace, nothing to install. Read the free lessons first, then take
-            the {site.priceLabel} course when you want a path you can finish.
+            Free, plain-English lessons for work, home and money, and simple
+            apps I’m building to make everyday jobs easier. Read at your own
+            pace. Nothing to buy.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row lg:mt-10 lg:gap-4">
-            <Link href="/course#enrol" className={button.primary}>
-              Get the course — {site.priceLabel}
-              <ArrowIcon />
-            </Link>
             <Link
               href="/learn/how-to-ask-for-a-useful-answer"
-              className={button.secondary}
+              className={button.primary}
             >
               Read a free lesson
+              <ArrowIcon />
+            </Link>
+            <Link href="/apps" className={button.secondary}>
+              See what I’m building
             </Link>
           </div>
           <ul className="mt-6 flex flex-wrap gap-x-7 gap-y-2.5 text-base text-ink-soft lg:mt-9 lg:text-[1.0625rem]">
@@ -137,8 +138,8 @@ export default function HomePage() {
             <h2 className={h2}>Feeling behind is common.</h2>
             <p className="text-lg leading-relaxed text-ink-soft lg:text-[1.3125rem]">
               It is not a measure of your ability. Plenty of capable people have
-              opened a chat once, felt foolish, and closed it. This course starts
-              right there.
+              opened a chat once, felt foolish, and closed it. These lessons
+              start right there.
             </p>
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
@@ -174,55 +175,32 @@ export default function HomePage() {
         <div className={`${container} py-14 lg:py-28`}>
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-12">
             <div className="flex max-w-[47.5rem] flex-col gap-4 lg:gap-5">
-              <Eyebrow tone="highlight">The course</Eyebrow>
-              <h2 className={h2}>Four modules. One path you can finish.</h2>
+              <Eyebrow tone="highlight">What I’m building</Eyebrow>
+              <h2 className={h2}>Apps for ordinary days.</h2>
+              <p className="text-lg leading-relaxed text-on-navy-soft lg:text-[1.3125rem]">
+                Small, simple tools made with the same idea as the lessons: they
+                should just work, without a manual.
+              </p>
             </div>
             <ArrowLink
-              href="/course#inside"
+              href="/apps"
               className="shrink-0 text-on-navy decoration-highlight"
             >
-              See what’s in each module
+              All apps
             </ArrowLink>
           </div>
-          <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-6">
-            {modules.map((module) => (
-              <li
-                key={module.number}
-                className="flex flex-col gap-3.5 rounded-2xl border border-navy-line bg-navy-raised p-6 lg:px-7 lg:py-8"
-              >
-                <p
-                  aria-hidden="true"
-                  className="font-serif text-4xl leading-none text-highlight lg:text-[3.5rem]"
-                >
-                  0{module.number}
-                </p>
-                <h3 className="font-serif text-2xl leading-[1.15] lg:mt-2 lg:text-[1.875rem]">
-                  <span className="sr-only">Module {module.number}: </span>
-                  {module.title}
-                </h3>
-                <p className="font-mono text-[0.9375rem] leading-snug text-on-navy-muted">
-                  {module.line}
-                </p>
-                <p className="flex-1 text-[1.0625rem] leading-relaxed text-on-navy-soft lg:text-lg">
-                  {module.summary}
-                </p>
-                <Link
-                  href={`/learn/${module.lessonSlug}`}
-                  className="mt-2 inline-flex items-center gap-2 text-lg font-bold text-highlight underline-offset-[5px] hover:underline"
-                >
-                  Free lesson
-                  <ArrowIcon />
-                </Link>
-              </li>
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:mt-16 lg:gap-6">
+            {apps.map((app) => (
+              <AppCard key={app.slug} app={app} tone="navy" />
             ))}
-          </ol>
+          </div>
         </div>
       </section>
 
       <section className={`${container} py-14 lg:py-28`}>
         <div className="grid gap-4 lg:grid-cols-12 lg:items-end lg:gap-x-6">
           <div className="flex flex-col gap-4 lg:col-span-7 lg:gap-5">
-            <Eyebrow>A taste of module 3</Eyebrow>
+            <Eyebrow>From a free lesson</Eyebrow>
             <h2 className={h2}>Catch up this week, without the shame.</h2>
           </div>
           <p className="text-lg leading-relaxed text-ink-soft lg:col-span-4 lg:col-start-9 lg:text-xl">
@@ -306,7 +284,7 @@ export default function HomePage() {
           </div>
           <div className="flex flex-col gap-8 lg:col-span-5 lg:col-start-8">
             <div className="flex flex-col gap-4 lg:gap-5">
-              <Eyebrow>Two rules we keep coming back to</Eyebrow>
+              <Eyebrow>Two rules I keep coming back to</Eyebrow>
               <h2 className={h2}>You stay in charge.</h2>
             </div>
             <ol className="flex flex-col gap-6 lg:gap-7">
@@ -342,63 +320,42 @@ export default function HomePage() {
             <Eyebrow>Free to read · no sign-up</Eyebrow>
             <h2 className={h2}>Start with a free lesson</h2>
             <p className="text-lg leading-relaxed text-ink-soft lg:text-[1.3125rem]">
-              Short pages you can use before you buy anything. Each one is
-              useful on its own.
+              Short pages you can use today. Each one is useful on its own.
             </p>
           </div>
           <ArrowLink href="/learn" className="shrink-0 text-ink decoration-tomato">
-            All {lessonsByModule.length} lessons
+            All {lessons.length} lessons
           </ArrowLink>
         </div>
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:mt-14 lg:grid-cols-3 lg:gap-6">
-          {lessonsByModule.map((lesson) => (
+          {lessons.map((lesson) => (
             <LessonCard key={lesson.slug} lesson={lesson} />
           ))}
         </div>
       </section>
 
-      <section className={`${container} pb-14 lg:pb-28`}>
-        <PriceBand />
+      <section className="border-y border-line bg-card">
+        <div
+          className={`${container} grid gap-6 py-14 lg:grid-cols-12 lg:items-center lg:gap-x-6 lg:py-22`}
+        >
+          <div className="flex flex-col gap-4 lg:col-span-5 lg:gap-5">
+            <Eyebrow>Who I am</Eyebrow>
+            <h2 className={h2}>Hello, I’m {site.author}.</h2>
+          </div>
+          <div className="flex flex-col gap-5 lg:col-span-6 lg:col-start-7">
+            <p className="text-lg leading-relaxed text-ink-soft lg:text-[1.3125rem]">
+              I use AI every day, for ordinary jobs and for building my own
+              apps. This site is where I share what works, in plain English,
+              for free. No jargon, no secret method.
+            </p>
+            <ArrowLink href="/about">More about me</ArrowLink>
+          </div>
+        </div>
+      </section>
+
+      <section className={`${container} py-14 lg:py-28`}>
+        <NewsletterBand />
       </section>
     </>
-  );
-}
-
-function PriceBand() {
-  return (
-    <div className="grid gap-8 rounded-[1.25rem] bg-tomato px-6 py-9 text-card lg:grid-cols-12 lg:items-center lg:gap-x-6 lg:rounded-3xl lg:px-20 lg:py-18">
-      <div className="flex flex-col gap-4 lg:col-span-6 lg:gap-5">
-        <Eyebrow tone="inherit">The starter course</Eyebrow>
-        <h2 className="font-serif text-[3.5rem] leading-none tracking-[-0.02em] lg:text-8xl lg:leading-[0.98]">
-          {site.priceLabel},
-          <br />
-          paid once.
-        </h2>
-        <p className="max-w-[28.75rem] text-lg leading-relaxed lg:text-[1.3125rem]">
-          No subscription. Four modules, in order, and yours to come back to.
-        </p>
-      </div>
-      <div className="flex flex-col gap-8 lg:col-span-5 lg:col-start-8">
-        <ul className="flex flex-col gap-3.5 text-[1.0625rem] leading-normal lg:text-[1.1875rem]">
-          {courseIncludes.map((item) => (
-            <li key={item} className="flex gap-3">
-              <CheckIcon className="mt-0.5 size-6 shrink-0" />
-              {item}
-            </li>
-          ))}
-        </ul>
-        <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
-          <Link href="/course#enrol" className={`${button.light} whitespace-nowrap`}>
-            Get the course — {site.priceLabel}
-          </Link>
-          <Link
-            href="/learn"
-            className="self-center whitespace-nowrap text-base text-card underline underline-offset-[5px] sm:self-auto lg:text-lg"
-          >
-            Or read a free lesson first
-          </Link>
-        </div>
-      </div>
-    </div>
   );
 }

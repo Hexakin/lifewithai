@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useId, useState } from "react";
 import { CrossIcon, MenuIcon } from "@/components/icons";
 import { button } from "@/components/ui";
-import { site } from "@/lib/site";
 
 export function MobileMenu({
   links,
@@ -47,11 +46,11 @@ export function MobileMenu({
           </Link>
         ))}
         <Link
-          href="/course#enrol"
+          href="/learn/how-to-ask-for-a-useful-answer"
           onClick={close}
           className={`${button.primary} mt-5 w-full`}
         >
-          Get the course — {site.priceLabel}
+          Read a free lesson
         </Link>
       </nav>
     </div>

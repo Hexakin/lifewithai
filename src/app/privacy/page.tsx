@@ -5,9 +5,11 @@ import { site } from "@/lib/site";
 export const metadata = pageMeta({
   title: "Privacy",
   description:
-    "How the Life with AI website handles information on this preview, and what will change when checkout opens.",
+    "How the Life with AI website handles information, including the email list.",
   path: "/privacy",
 });
+
+const h2 = "font-serif text-[1.75rem] leading-[1.15] lg:text-[2rem]";
 
 export default function PrivacyPage() {
   return (
@@ -17,15 +19,14 @@ export default function PrivacyPage() {
       <h1 className="mt-4 font-serif text-[2.875rem] leading-[1.04] tracking-[-0.02em] sm:text-6xl">
         Privacy
       </h1>
-      <p className="mt-5 font-mono text-sm text-ink-soft">Last updated 24 September 2026</p>
+      <p className="mt-5 font-mono text-sm text-ink-soft">Last updated 26 September 2026</p>
       <div className="mt-10 space-y-10 border-t-2 border-ink pt-10 text-lg leading-[1.7] lg:text-xl">
         <section>
-          <h2 className="font-serif text-[1.75rem] leading-[1.15] lg:text-[2rem]">Who we are</h2>
+          <h2 className={h2}>Who I am</h2>
           <p className="mt-3">
-            Life with AI publishes free lessons and a {site.priceLabel}{" "}
-            self-paced course for people in the UK and Europe. The site is
-            intended for {site.domains[0]} and {site.domains[1]}. Questions
-            about privacy can go to{" "}
+            Life with AI is run by {site.author}. It publishes free lessons on
+            everyday AI and information about the apps I’m building, for people
+            in the UK and Europe. Questions about privacy can go to{" "}
             <a className="underline underline-offset-4" href={`mailto:${site.email}`}>
               {site.email}
             </a>
@@ -33,28 +34,34 @@ export default function PrivacyPage() {
           </p>
         </section>
         <section>
-          <h2 className="font-serif text-[1.75rem] leading-[1.15] lg:text-[2rem]">What this preview collects</h2>
+          <h2 className={h2}>Reading the site</h2>
           <p className="mt-3">
-            This preview does not run analytics and does not use advertising
-            cookies. The email box on the course page stays in your browser.
-            It checks that the address looks valid, then shows a message. It
-            does not send the address to us, store it, or add you to a list.
+            You don’t need an account to read anything here. The site does not
+            run analytics and does not use advertising cookies. Like any
+            website, the hosting provider (Vercel) keeps short-lived technical
+            logs, such as IP addresses, to keep the site running and secure.
           </p>
         </section>
         <section>
-          <h2 className="font-serif text-[1.75rem] leading-[1.15] lg:text-[2rem]">When checkout opens</h2>
+          <h2 className={h2}>The email list</h2>
           <p className="mt-3">
-            Payment is planned through Stripe. Card details would be handled
-            by Stripe, not stored on this site. We will update this page
-            before that switch, including what we keep (such as your email and
-            the fact you bought the course) and how long we keep it.
+            If you sign up for email updates, your email address is stored
+            with Buttondown, the service that sends the emails. You’ll get an
+            email asking you to confirm first; nothing else is sent until you
+            do. I use your address only to send new lessons and news about my
+            apps. I don’t sell it or share it with anyone else.
+          </p>
+          <p className="mt-3">
+            Every email has an unsubscribe link, and unsubscribing takes one
+            click. You can also email me to have your address deleted. The
+            legal basis is your consent, which you can withdraw at any time.
           </p>
         </section>
         <section>
-          <h2 className="font-serif text-[1.75rem] leading-[1.15] lg:text-[2rem]">Lessons and the course</h2>
+          <h2 className={h2}>The apps</h2>
           <p className="mt-3">
-            There is no account and no learning platform on this site yet. You
-            do not need to sign in to read the free lessons.
+            Each app will have its own privacy notice, published before it is
+            released, saying exactly what it collects and why.
           </p>
         </section>
       </div>

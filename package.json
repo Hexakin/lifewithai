@@ -2,7 +2,7 @@
   "name": "lifewithai",
   "version": "0.1.0",
   "private": true,
-  "description": "Life with AI — marketing site and £39 starter course for everyday learners in the UK and Europe.",
+  "description": "Life with AI — free everyday-AI lessons and simple apps, for people in the UK and Europe.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

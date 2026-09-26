@@ -56,6 +56,14 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  // Ownership tags for Google Search Console and Bing Webmaster Tools. Each
+  // is only rendered when its variable is set.
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
+      : undefined,
+  },
 };
 
 export default function RootLayout({

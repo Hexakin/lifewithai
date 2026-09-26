@@ -9,7 +9,7 @@ export function LessonCard({ lesson }: { lesson: Lesson }) {
       className="group flex flex-col gap-3.5 rounded-2xl border border-line bg-card p-6 text-ink no-underline transition hover:border-ink motion-safe:hover:-translate-y-0.5 sm:p-8"
     >
       <p className="font-mono text-sm tracking-[0.04em] text-ink-soft">
-        Module {lesson.moduleNumber} · {lesson.readingMinutes} min read
+        {lesson.readingMinutes} min read
       </p>
       <h3 className="font-serif text-2xl leading-[1.15] sm:text-[1.875rem]">
         {lesson.title}

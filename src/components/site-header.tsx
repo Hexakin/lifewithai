@@ -3,11 +3,11 @@ import { Logo } from "@/components/logo";
 import { MobileMenu } from "@/components/mobile-menu";
 import { NavLink } from "@/components/nav-link";
 import { button, container } from "@/components/ui";
-import { site } from "@/lib/site";
 
 const links = [
   { href: "/learn", label: "Free lessons" },
-  { href: "/course", label: "The course" },
+  { href: "/apps", label: "Apps" },
+  { href: "/about", label: "About" },
 ] as const;
 
 export function SiteHeader() {
@@ -26,10 +26,10 @@ export function SiteHeader() {
           ))}
         </nav>
         <Link
-          href="/course#enrol"
+          href="/learn/how-to-ask-for-a-useful-answer"
           className={`${button.ink} ml-4 min-h-13 px-[1.375rem] max-md:hidden`}
         >
-          Get the course — {site.priceLabel}
+          Read a free lesson
         </Link>
         <MobileMenu links={links} />
       </div>

@@ -4,10 +4,11 @@ import { site } from "@/lib/site";
 
 export const metadata = pageMeta({
   title: "Terms",
-  description:
-    "Draft terms for the Life with AI website and the £39 self-paced starter course.",
+  description: "Terms for using the Life with AI website and its free lessons.",
   path: "/terms",
 });
+
+const h2 = "font-serif text-[1.75rem] leading-[1.15] lg:text-[2rem]";
 
 export default function TermsPage() {
   return (
@@ -17,29 +18,18 @@ export default function TermsPage() {
       <h1 className="mt-4 font-serif text-[2.875rem] leading-[1.04] tracking-[-0.02em] sm:text-6xl">
         Terms
       </h1>
-      <p className="mt-5 font-mono text-sm text-ink-soft">Last updated 24 September 2026</p>
+      <p className="mt-5 font-mono text-sm text-ink-soft">Last updated 26 September 2026</p>
       <div className="mt-10 space-y-10 border-t-2 border-ink pt-10 text-lg leading-[1.7] lg:text-xl">
         <section>
-          <h2 className="font-serif text-[1.75rem] leading-[1.15] lg:text-[2rem]">The site and the course</h2>
+          <h2 className={h2}>The site</h2>
           <p className="mt-3">
-            Life with AI offers free lessons and a self-paced starter course
-            priced at {site.priceLabel}. These pages are a draft for{" "}
-            {site.domains[0]} and {site.domains[1]}. Checkout is not taking
-            payment yet. Nothing on the course form is an order.
+            Life with AI publishes free lessons on everyday AI and information
+            about apps in development. Nothing on the site is for sale, and
+            reading it is free.
           </p>
         </section>
         <section>
-          <h2 className="font-serif text-[1.75rem] leading-[1.15] lg:text-[2rem]">What you are buying, later</h2>
-          <p className="mt-3">
-            When payment is live, the course will be a one-off digital
-            purchase for your own learning. It is not a live class, a
-            qualification, or a subscription. The refund window will be stated
-            on the course page before you pay. Until then, do not send money
-            to anyone claiming to sell this course.
-          </p>
-        </section>
-        <section>
-          <h2 className="font-serif text-[1.75rem] leading-[1.15] lg:text-[2rem]">Not professional advice</h2>
+          <h2 className={h2}>Not professional advice</h2>
           <p className="mt-3">
             Lessons are general education. They are not financial, medical,
             legal, or employment advice. You check important facts yourself,
@@ -48,12 +38,20 @@ export default function TermsPage() {
           </p>
         </section>
         <section>
-          <h2 className="font-serif text-[1.75rem] leading-[1.15] lg:text-[2rem]">Using the pages</h2>
+          <h2 className={h2}>The apps</h2>
           <p className="mt-3">
-            You may read the free lessons for your own use. Please do not copy
-            the course materials to resell them. These draft terms are written
-            with England and Wales in mind and will be replaced by a full set
-            before checkout opens. Contact{" "}
+            Each app will come with its own terms when it is released.
+            Descriptions of apps that are still in the works may change
+            before release.
+          </p>
+        </section>
+        <section>
+          <h2 className={h2}>Using the pages</h2>
+          <p className="mt-3">
+            You may read, print and share links to the lessons for your own
+            use. Please don’t copy them wholesale onto another site or sell
+            them. These terms are written with England and Wales in mind.
+            Contact{" "}
             <a className="underline underline-offset-4" href={`mailto:${site.email}`}>
               {site.email}
             </a>{" "}

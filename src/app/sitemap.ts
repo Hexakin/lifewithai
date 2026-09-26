@@ -6,8 +6,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(updated);
   const paths = [
     "",
-    "/course",
     "/learn",
+    "/apps",
+    "/about",
     "/privacy",
     "/terms",
     ...lessons.map((lesson) => `/learn/${lesson.slug}`),
@@ -17,6 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${site.url}${path}`,
     lastModified,
     changeFrequency: path === "" || path === "/learn" ? "weekly" : "monthly",
-    priority: path === "" ? 1 : path === "/course" ? 0.9 : 0.7,
+    priority: path === "" ? 1 : path === "/learn" ? 0.9 : 0.7,
   }));
 }

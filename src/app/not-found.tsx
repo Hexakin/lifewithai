@@ -10,8 +10,8 @@ export default function NotFound() {
           That page is <span className="highlight-mark">not here</span>
         </h1>
         <p className="mt-5 max-w-prose text-lg leading-relaxed text-ink-soft sm:text-xl">
-          The link may be out of date. The lessons and the course are still
-          where you left them.
+          The link may be out of date. The free lessons are still where you
+          left them.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Link href="/" className={button.primary}>

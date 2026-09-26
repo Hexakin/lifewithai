@@ -1,15 +1,16 @@
 import Link from "next/link";
 import { ArrowIcon } from "@/components/icons";
 import { LessonCard } from "@/components/lesson-card";
-import { ArrowLink, button, container, Eyebrow, StepBadge } from "@/components/ui";
-import { getLesson, lessonsByModule } from "@/lib/lessons";
+import { NewsletterBand } from "@/components/newsletter-band";
+import { button, container, Eyebrow, StepBadge } from "@/components/ui";
+import { getLesson, lessons } from "@/lib/lessons";
 import { pageMeta } from "@/lib/metadata";
 import { site } from "@/lib/site";
 
 export const metadata = pageMeta({
   title: "Free lessons",
   description:
-    "Short, plain-English lessons on using AI in everyday life. A free start before the £39 Life with AI course.",
+    "Short, free, plain-English lessons on using AI in everyday life: asking good questions, keeping private things private, and habits that save time.",
   path: "/learn",
 });
 
@@ -17,7 +18,7 @@ const featuredSlug = "how-to-ask-for-a-useful-answer";
 
 export default function LearnIndexPage() {
   const featured = getLesson(featuredSlug);
-  const rest = lessonsByModule.filter((lesson) => lesson.slug !== featuredSlug);
+  const rest = lessons.filter((lesson) => lesson.slug !== featuredSlug);
 
   return (
     <>
@@ -32,11 +33,9 @@ export default function LearnIndexPage() {
         </div>
         <div className="flex flex-col gap-4 lg:col-span-4 lg:col-start-9">
           <p className="text-lg leading-relaxed text-ink-soft lg:text-xl">
-            Short pages that are useful on their own. If you want the four
-            modules in order, with practice, the course is {site.priceLabel}{" "}
-            when you’re ready.
+            Short pages that are useful on their own. Read them in any order,
+            and try one thing from each today.
           </p>
-          <ArrowLink href="/course">See the course</ArrowLink>
         </div>
       </section>
 
@@ -48,8 +47,7 @@ export default function LearnIndexPage() {
           >
             <div className="flex flex-col gap-4 lg:col-span-6 lg:gap-5">
               <Eyebrow tone="highlight">
-                Start here · Module {featured.moduleNumber} ·{" "}
-                {featured.readingMinutes} min read
+                Start here · {featured.readingMinutes} min read
               </Eyebrow>
               <h2 className="font-serif text-4xl leading-[1.08] tracking-[-0.015em] lg:text-[3.5rem] lg:leading-[1.06]">
                 {featured.title}
@@ -91,23 +89,27 @@ export default function LearnIndexPage() {
         {rest.map((lesson) => (
           <LessonCard key={lesson.slug} lesson={lesson} />
         ))}
-        <Link
-          href="/course"
+        <a
+          href={`mailto:${site.email}?subject=Lesson%20idea`}
           className="group flex flex-col gap-3.5 rounded-2xl bg-tomato p-6 text-card no-underline sm:p-8"
         >
-          <Eyebrow tone="inherit">The full course</Eyebrow>
+          <Eyebrow tone="inherit">More on the way</Eyebrow>
           <h3 className="font-serif text-2xl leading-[1.15] sm:text-[1.875rem]">
-            Want all four modules, in order?
+            What should I write next?
           </h3>
           <p className="flex-1 text-base leading-relaxed sm:text-lg">
-            The lessons plus practice for each module. {site.priceLabel}, paid
-            once.
+            Tell me the job you’d like AI to help with, and I’ll write a lesson
+            on it.
           </p>
           <span className={`${button.light} mt-2 min-h-13 self-start px-[1.375rem]`}>
-            See the course
+            Suggest a lesson
             <ArrowIcon className="size-[1.125rem]" />
           </span>
-        </Link>
+        </a>
+      </section>
+
+      <section className={`${container} pb-14 lg:pb-28`}>
+        <NewsletterBand />
       </section>
     </>
   );

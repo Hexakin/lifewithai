@@ -14,12 +14,12 @@ const columns = [
     ],
   },
   {
-    heading: "Course",
+    heading: "More",
     className: "md:col-span-2",
     links: [
-      { href: "/course", label: "The course" },
-      { href: "/course#inside", label: "The four modules" },
-      { href: "/course#enrol", label: `Get the course — ${site.priceLabel}` },
+      { href: "/apps", label: "Apps" },
+      { href: "/about", label: "About me" },
+      { href: "/#newsletter", label: "Email updates" },
     ],
   },
   {
@@ -67,8 +67,7 @@ export function SiteFooter() {
         </div>
         <div className="mt-14 flex flex-col gap-2 border-t border-navy-line pt-6 text-on-navy-muted md:flex-row md:items-center md:justify-between">
           <p className="text-sm leading-relaxed lg:text-[0.9375rem]">
-            General education, not financial, medical or legal advice. Prices
-            in pounds.
+            General education, not financial, medical or legal advice.
           </p>
           <p className="font-mono text-[0.8125rem] lg:text-sm">
             {site.domains.join(" · ")}
