@@ -5,7 +5,7 @@ export const site = {
     "",
   ),
   domains: ["lifewithai.co.uk", "lifewithai.uk"] as const,
-  email: "hello@lifewithai.co.uk",
+  email: "jonathan.hill@hillmade.uk",
   author: "Jonathan",
   description:
     "Free, plain-English lessons on using AI in everyday life, for people in the UK and Europe, and simple apps built to make ordinary jobs easier.",
