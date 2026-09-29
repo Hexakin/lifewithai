@@ -46,7 +46,7 @@ export default function PrivacyPage() {
           <h2 className={h2}>The email list</h2>
           <p className="mt-3">
             If you sign up for email updates, your email address is stored
-            with Buttondown, the service that sends the emails. You’ll get an
+            with MailerLite, the service that sends the emails. You’ll get an
             email asking you to confirm first; nothing else is sent until you
             do. I use your address only to send new lessons and news about my
             apps. I don’t sell it or share it with anyone else.

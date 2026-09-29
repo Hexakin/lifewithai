@@ -34,7 +34,7 @@ Point `lifewithai.co.uk` and `lifewithai.uk` at the Vercel project when DNS is r
 
 Environment variables live in the Vercel project settings; redeploy after changing them, because pages are built statically.
 
-- `BUTTONDOWN_API_KEY` turns on the email signup. Subscribers get Buttondown’s confirmation email before they are added. Without the key, the signup band shows a “list opens soon” note instead of a form.
+- `MAILERLITE_API_KEY`, `MAILERLITE_GROUP_ID` and `MAILERLITE_DOUBLE_OPT_IN_CONFIRMED=true` turn on the email signup. The list uses the same MailerLite account as hillmade.uk with its own Life with AI group; turn on **Double opt-in for API and integrations** in MailerLite first, so subscribers confirm before they are added. Without all three, the signup band shows a “list opens soon” note instead of a form. Server-only: never prefix them with `NEXT_PUBLIC_`.
 - `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION` add the ownership meta tags for Google Search Console and Bing Webmaster Tools.
 
 ## Adding content
