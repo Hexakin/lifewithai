@@ -3,13 +3,15 @@ import { Logo } from "@/components/logo";
 import { MobileMenu } from "@/components/mobile-menu";
 import { NavLink } from "@/components/nav-link";
 import { button, container } from "@/components/ui";
+import { visibleTips } from "@/lib/tips";
 
 const links = [
   { href: "/learn", label: "Free lessons" },
-  { href: "/tips", label: "Tips" },
+  // Tips appear in the nav once at least one is live (or on preview builds).
+  ...(visibleTips.length ? [{ href: "/tips", label: "Tips" }] : []),
   { href: "/apps", label: "Apps" },
   { href: "/about", label: "About" },
-] as const;
+];
 
 export function SiteHeader() {
   return (

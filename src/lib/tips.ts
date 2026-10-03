@@ -3,13 +3,16 @@
  * building the Hillmade studio. Every tip starts life as an X post; the post's
  * first reply links here.
  *
- * Workflow: Hermes drafts a tip alongside the morning X draft with
- * status "draft". Drafts only show on local dev and Vercel preview builds.
- * When the X post goes live, Hermes flips it to "live" and pushes to main.
+ * Status:
+ *   draft    - visible on local dev and Vercel preview builds only.
+ *   approved - Jonathan kept the matching X draft. The page works by direct link
+ *              (so the X post's first reply never 404s) but is unlisted and noindex.
+ *   live     - the X post is out. Listed on /tips, in the nav and the sitemap.
+ * Hermes flips these with HQ\\harvest\\lwai_tips.py, driven by the content queue.
  * Every few tips on one theme get folded into a full lesson in lessons.ts.
  */
 
-export type TipStatus = "draft" | "live";
+export type TipStatus = "draft" | "approved" | "live";
 
 export type Tip = {
   slug: string;
@@ -152,17 +155,19 @@ export const tips: Tip[] = [
   },
 ];
 
-/**
- * Drafts are visible on local dev and Vercel preview deployments, so Jonathan can
- * review them before the X post goes out. Production shows live tips only.
- */
 export const showDrafts =
   process.env.NODE_ENV !== "production" || process.env.VERCEL_ENV === "preview";
 
+/** Listed on /tips, the nav and the sitemap. */
 export const visibleTips = tips.filter((tip) => tip.status === "live" || showDrafts);
 
+/** Reachable by direct link: listed tips plus approved ones. */
+export const reachableTips = tips.filter(
+  (tip) => tip.status === "live" || tip.status === "approved" || showDrafts,
+);
+
 export function getTip(slug: string) {
-  return visibleTips.find((tip) => tip.slug === slug);
+  return reachableTips.find((tip) => tip.slug === slug);
 }
 
 export function formatTipDate(date: string) {

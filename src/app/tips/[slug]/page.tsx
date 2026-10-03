@@ -7,14 +7,14 @@ import { NewsletterBand } from "@/components/newsletter-band";
 import { container, Eyebrow } from "@/components/ui";
 import { pageMeta } from "@/lib/metadata";
 import { site } from "@/lib/site";
-import { formatTipDate, getTip, visibleTips } from "@/lib/tips";
+import { formatTipDate, getTip, reachableTips, showDrafts, visibleTips } from "@/lib/tips";
 
 type TipPageProps = {
   params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
-  return visibleTips.map((tip) => ({ slug: tip.slug }));
+  return reachableTips.map((tip) => ({ slug: tip.slug }));
 }
 
 export const dynamicParams = false;
@@ -25,7 +25,9 @@ export async function generateMetadata({ params }: TipPageProps): Promise<Metada
   if (!tip) {
     return { title: "Tip not found" };
   }
-  return pageMeta({ title: tip.title, description: tip.description, path: `/tips/${tip.slug}` });
+  const meta = pageMeta({ title: tip.title, description: tip.description, path: `/tips/${tip.slug}` });
+  // Unlisted until the X post is out.
+  return tip.status === "live" ? meta : { ...meta, robots: { index: false, follow: true } };
 }
 
 export default async function TipPage({ params }: TipPageProps) {
@@ -35,7 +37,7 @@ export default async function TipPage({ params }: TipPageProps) {
     notFound();
   }
   const index = visibleTips.findIndex((item) => item.slug === tip.slug);
-  const older = visibleTips[index + 1];
+  const older = index >= 0 ? visibleTips[index + 1] : visibleTips[0];
 
   return (
     <>
@@ -59,9 +61,11 @@ export default async function TipPage({ params }: TipPageProps) {
               Tips
             </Link>
           </nav>
-          {tip.status === "draft" ? (
+          {tip.status !== "live" && showDrafts ? (
             <p className="mt-5 rounded-lg bg-highlight-soft px-4 py-2 font-mono text-sm">
-              DRAFT: only visible on preview builds. Goes live when the X post does.
+              {tip.status.toUpperCase()}: {tip.status === "draft"
+                ? "preview builds only. Goes up when you keep the X draft."
+                : "reachable by link, unlisted. Listed when the X post goes out."}
             </p>
           ) : null}
           <h1 className="mt-5 font-serif text-[2.625rem] leading-[1.06] tracking-[-0.02em] sm:text-5xl lg:mt-6 lg:text-[3.5rem] lg:leading-[1.05]">

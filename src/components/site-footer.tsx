@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Logo } from "@/components/logo";
 import { container, Eyebrow } from "@/components/ui";
 import { site } from "@/lib/site";
+import { visibleTips } from "@/lib/tips";
 
 const columns = [
   {
@@ -9,7 +10,7 @@ const columns = [
     className: "md:col-span-2 md:col-start-6",
     links: [
       { href: "/learn", label: "Free lessons" },
-      { href: "/tips", label: "Tips" },
+      ...(visibleTips.length ? [{ href: "/tips", label: "Tips" }] : []),
       { href: "/learn/how-to-ask-for-a-useful-answer", label: "How to ask" },
       { href: "/learn/what-to-keep-private", label: "What to keep private" },
     ],

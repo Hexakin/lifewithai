@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/privacy",
     "/terms",
-    "/tips",
+    ...(visibleTips.length ? ["/tips"] : []),
     ...lessons.map((lesson) => `/learn/${lesson.slug}`),
     ...visibleTips.map((tip) => `/tips/${tip.slug}`),
   ];

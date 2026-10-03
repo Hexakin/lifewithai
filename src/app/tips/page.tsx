@@ -42,7 +42,7 @@ export default function TipsIndexPage() {
           >
             <p className="font-mono text-sm tracking-[0.04em] text-ink-soft">
               {formatTipDate(tip.date)}
-              {tip.status === "draft" ? " · DRAFT" : ""}
+              {tip.status !== "live" ? ` · ${tip.status.toUpperCase()}` : ""}
             </p>
             <h2 className="font-serif text-2xl leading-[1.15] sm:text-[1.875rem]">{tip.title}</h2>
             <p className="flex-1 text-base leading-relaxed text-ink-soft sm:text-lg">{tip.description}</p>

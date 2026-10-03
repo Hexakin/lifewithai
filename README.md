@@ -40,6 +40,7 @@ Environment variables live in the Vercel project settings; redeploy after changi
 ## Adding content
 
 - **A lesson:** add an entry to `src/lib/lessons.ts`. The array order is the reading order, and each lesson links to the next. The sitemap picks it up automatically.
+- **A tip:** add an entry to the top of `src/lib/tips.ts` with `status: "draft"`. Drafts show on local dev and Vercel preview builds only (the `preview` branch gives a stable review URL). Set `status: "live"` to publish; the Tips nav link appears once one tip is live. Hermes's `HQ\harvest\lwai_tips.py` does this automatically when the matching X post goes out.
 - **An app:** add or update an entry in `src/lib/apps.ts`. Set `status: "released"` and `href` to the store link when it ships.
 
 ## Design
@@ -53,6 +54,8 @@ Warm paper, ink navy, one tomato accent and a highlighter yellow. Headings use Y
 | `/` | Home |
 | `/learn` | Free lesson index |
 | `/learn/[slug]` | One lesson (slugs in `src/lib/lessons.ts`) |
+| `/tips` | Tips index (live tips; drafts on preview) |
+| `/tips/[slug]` | One tip (slugs in `src/lib/tips.ts`) |
 | `/apps` | Apps, in the works and released |
 | `/about` | Who I am |
 | `/course`, `/modules` | Permanent redirects to `/learn` (the paid course was withdrawn) |
