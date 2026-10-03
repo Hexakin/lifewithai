@@ -43,7 +43,7 @@ export const tips: Tip[] = [
     date: "2026-10-03",
     status: "draft",
     story: [
-      "This week I was choosing tools for the games I make. One of them, Hunyuan3D from Tencent, turns pictures into 3D models. It is free to download and it is very good.",
+      "This week I was choosing tools for the games I make. One of them, Hunyuan3D from Tencent, turns pictures into 3D models. It is free to download.",
       "The first line of its licence says it does not apply in the European Union, the United Kingdom or South Korea. Further down, it says any use outside its allowed territory is unlicensed. I am in the UK, so it was out, however good it is.",
       "Free to download and free to use are two different things. The download page will not tell you. The licence will.",
     ],
@@ -74,7 +74,7 @@ export const tips: Tip[] = [
     xPost: "https://x.com/Hexakin/status/2105983635484561411",
     story: [
       "I deleted 170,000 files in one go. Old AI experiments I had stopped using, 8 GB of them. 1,175 files were left.",
-      "Before deleting anything, I copied everything I could not rebuild to another drive. Then I checked the copy was all there: the same number of files, and a few opened to make sure they worked. Only then did I delete.",
+      "Before deleting anything, I copied everything I could not rebuild to another drive. Then I checked the copy was all there: the same number of files on both drives. Only then did I delete.",
       "I had learned that lesson the week before, the hard way.",
     ],
     before: {
@@ -88,7 +88,7 @@ export const tips: Tip[] = [
       result: "A clear-out you can undo.",
     },
     why: [
-      "A backup you have not checked is a hope. Counting the files, and opening a few, turns it into a fact.",
+      "A backup you have not checked is a hope. Counting the files turns it into a fact. Opening a few makes it even safer.",
       "This matters even more when an AI assistant does the tidying. It will do exactly what you ask, quickly. Make it copy and count first, and keep the delete for last, on your say-so.",
     ],
     tryThis:
@@ -134,7 +134,7 @@ export const tips: Tip[] = [
     xPost: "https://x.com/Hexakin/status/2105348196755243390",
     story: [
       "My music project quietly saved every video render and audio file for four months. It grew to 2.4 GB.",
-      "I keep my projects on GitHub, which is like an online backup for code. GitHub refuses any single upload over 2 GB, so one day it simply refused. It took an evening to strip the big files out again.",
+      "I keep my projects on GitHub, which is like an online backup for code. GitHub refuses any single upload over 2 GB, so one day it simply refused, and I had to strip all the big files back out.",
     ],
     before: {
       label: "Day one, the usual way",
