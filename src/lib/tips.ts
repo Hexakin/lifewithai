@@ -70,7 +70,7 @@ export const tips: Tip[] = [
     description:
       "Clearing out old files is easy. Getting them back is not. The three-step order that keeps a clear-out safe.",
     date: "2026-10-02",
-    status: "draft",
+    status: "live",
     xPost: "https://x.com/Hexakin/status/2105983635484561411",
     story: [
       "I deleted 170,000 files in one go. Old AI experiments I had stopped using, 8 GB of them. 1,175 files were left.",
@@ -100,7 +100,7 @@ export const tips: Tip[] = [
     description:
       "An AI can finish a job, pass every test, and still leave it sitting on your computer. How to know it is really done.",
     date: "2026-10-01",
-    status: "draft",
+    status: "live",
     xPost: "https://x.com/Hexakin/status/2105621246708957529",
     story: [
       "My AI agent finished a job: music for my games, with every test passing. It said it was done.",
@@ -130,7 +130,7 @@ export const tips: Tip[] = [
     description:
       "AI tools that build things save everything by default. One small file stops your project quietly filling up.",
     date: "2026-09-30",
-    status: "draft",
+    status: "live",
     xPost: "https://x.com/Hexakin/status/2105348196755243390",
     story: [
       "My music project quietly saved every video render and audio file for four months. It grew to 2.4 GB.",
