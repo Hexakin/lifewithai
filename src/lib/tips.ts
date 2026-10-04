@@ -36,6 +36,35 @@ export type Tip = {
 export const tips: Tip[] = [
   // Newest first.
   {
+    slug: "ask-a-second-ai-to-check",
+    title: "Ask a second AI to check the first one’s work",
+    description:
+      "An AI will tell you its work is finished. Another AI, asked to look for problems, often finds some. How to set that up.",
+    date: "2026-10-04",
+    status: "draft",
+    story: [
+      "Last night two AI assistants from two different companies worked on my game. Whichever one wrote a piece of work, the other had to check it before it was allowed in. Neither could approve its own work.",
+      "Seven pieces of work went in overnight. Five of them came back from the checker with problems on the first try. Every one was fixed and checked again before it was accepted.",
+      "One of the problems mattered to my wallet. The tool that makes the game’s sound effects uses a paid service. The checker tested it and found it could ask for the same sound twice, and could go past the nightly limit I had set. The first AI had reported the job as done.",
+    ],
+    before: {
+      label: "Trusting the first answer",
+      text: "“Build this for me.” The AI says it is finished, so you use it.",
+      result: "Mistakes get found later, by you, usually at a bad moment.",
+    },
+    after: {
+      label: "A second pair of eyes",
+      text: "Open a different AI, or a fresh chat. Paste in the work and say: “Another AI made this. Check it for mistakes, risks and anything missing. List what you find. Don’t rewrite it.”",
+      result: "A list of problems to fix before you rely on it, not after.",
+    },
+    why: [
+      "An AI that made something tends to agree with itself. A second one, asked only to find problems, has no reason to be kind. A different company’s AI is best, because it tends to make different mistakes. A fresh chat is the next best thing.",
+      "Asking for a list, not a rewrite, keeps you in charge. You decide which points are real, and you can send the list back to the first AI to fix. Check the fixes yourself before you trust them.",
+    ],
+    tryThis:
+      "Take something an AI made for you this week, such as an email, a plan or a spreadsheet formula. Paste it into a different AI and ask it to list mistakes, risks and anything missing.",
+  },
+  {
     slug: "check-the-licence-territory",
     title: "Read the licence: search for “territory”",
     description:
