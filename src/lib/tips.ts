@@ -41,7 +41,8 @@ export const tips: Tip[] = [
     description:
       "Free AI tools are not always free to use where you live. Two words to search for before you build on one.",
     date: "2026-10-03",
-    status: "draft",
+    status: "live",
+    xPost: "https://x.com/Hexakin/status/2106346022926700650",
     story: [
       "This week I was choosing tools for the games I make. One of them, Hunyuan3D from Tencent, turns pictures into 3D models. It is free to download.",
       "The first line of its licence says it does not apply in the European Union, the United Kingdom or South Korea. Further down, it says any use outside its allowed territory is unlicensed. I am in the UK, so it was out, however good it is.",
