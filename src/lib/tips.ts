@@ -41,7 +41,8 @@ export const tips: Tip[] = [
     description:
       "An AI will tell you its work is finished. Another AI, asked to look for problems, often finds some. How to set that up.",
     date: "2026-10-04",
-    status: "draft",
+    status: "live",
+    xPost: "https://x.com/Hexakin/status/2106678212092981303",
     story: [
       "Last night two AI assistants from two different companies worked on my game. Whichever one wrote a piece of work, the other had to check it before it was allowed in. Neither could approve its own work.",
       "Seven pieces of work went in overnight. Five of them came back from the checker with problems on the first try. Every one was fixed and checked again before it was accepted.",
