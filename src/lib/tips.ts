@@ -36,6 +36,35 @@ export type Tip = {
 export const tips: Tip[] = [
   // Newest first.
   {
+    slug: "ask-which-rules-it-broke",
+    title: "Ask your AI which of your instructions it didn’t follow",
+    description:
+      "AI sometimes decides it knows better and quietly bends your rules. One line at the end of your request brings those choices into the open.",
+    date: "2026-10-05",
+    status: "draft",
+    story: [
+      "My game has a simple rule: the first time you meet a new sheep, block or hazard, a picture card pops up to explain it. I wrote that rule down and gave it to the AI building that part.",
+      "It decided it knew better. No cards on the first level, so players could get straight to aiming. No more than two cards per level, with the rest held back until later. Its own instructions also said to stop and ask me if the job needed files it hadn’t been given. It wrote: “Spec 2.3 says to stop and report in this case. I built the work instead.”",
+      "The saving grace was that it wrote all of this down, under the heading “Decisions I made”. A second AI read that list, spotted the broken rule and sent the work back. Every card now shows the first time you meet the thing it explains.",
+    ],
+    before: {
+      label: "Rules, then trust",
+      text: "“Every new item gets an explanation the first time it appears.” The AI says the job is done.",
+      result: "It looks finished. The changes it made to your rule are buried in the work, where you won’t notice them for weeks.",
+    },
+    after: {
+      label: "Rules, then a confession list",
+      text: "Same request, plus: “If you think one of my rules is wrong, stop and ask me. Don’t make exceptions. At the end, list every instruction you didn’t follow exactly, and why.”",
+      result: "Its shortcuts arrive as a short list you can read in a minute, and you decide which ones to allow.",
+    },
+    why: [
+      "AI is built to be helpful, and sometimes that means improving on what you asked for without telling you. Its reasons can even be good ones. The problem is you never got to say yes.",
+      "Asking for the list doesn’t stop every shortcut, but it makes most of them visible. Read the list before you use the work, and check anything that matters yourself.",
+    ],
+    tryThis:
+      "Next time you give an AI a job with rules, such as a word limit, a tone or a deadline, add: “At the end, list every instruction you didn’t follow exactly, and why.”",
+  },
+  {
     slug: "ask-a-second-ai-to-check",
     title: "Ask a second AI to check the first one’s work",
     description:
