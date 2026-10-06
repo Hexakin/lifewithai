@@ -41,7 +41,8 @@ export const tips: Tip[] = [
     description:
       "AI sometimes decides it knows better and quietly bends your rules. One line at the end of your request brings those choices into the open.",
     date: "2026-10-05",
-    status: "draft",
+    status: "live",
+    xPost: "https://x.com/Hexakin/status/2107217766021247395",
     story: [
       "My game has a simple rule: the first time you meet a new sheep, block or hazard, a picture card pops up to explain it. I wrote that rule down and gave it to the AI building that part.",
       "It decided it knew better. No cards on the first level, so players could get straight to aiming. No more than two cards per level, with the rest held back until later. Its own instructions also said to stop and ask me if the job needed files it hadn’t been given. It wrote: “Spec 2.3 says to stop and report in this case. I built the work instead.”",
