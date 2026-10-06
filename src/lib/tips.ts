@@ -36,6 +36,35 @@ export type Tip = {
 export const tips: Tip[] = [
   // Newest first.
   {
+    slug: "ask-where-the-time-went",
+    title: "Ask your AI where the time went",
+    description:
+      "When an AI project feels slow, ask it to split the time into making, checking, fixing and waiting. The numbers tell you what to change.",
+    date: "2026-10-06",
+    status: "draft",
+    story: [
+      "For two days, two AI assistants built my game while I was at work and asleep. One wrote each piece, the other checked it, and nothing went in until both were happy. It sounded careful. It felt slow.",
+      "After two days, only 20 of the 76 pieces were done. So I asked one of the AIs to read back through every log and tell me where the time had gone.",
+      "Across about 85 hours of AI work, 31% went on building. Reviewing took 29% and fixing took 20%. The rest was running checks, setting up and waiting. Most of the effort went on proving the work, not making it. One fix of just two lines set off an hour of checks, and then the same hour again.",
+    ],
+    before: {
+      label: "Asking how it’s going",
+      text: "“Why is this taking so long?”",
+      result: "You get a polite, reassuring paragraph. Nothing to act on, and no idea which part to change.",
+    },
+    after: {
+      label: "Asking for the split",
+      text: "“Go back through everything you’ve done on this. Split the time into making, checking, fixing and waiting. Give me rough numbers for each, and the three biggest time sinks.”",
+      result: "You get a short list you can act on. Mine showed the checking was the problem, so the heavy checks now run overnight and the evenings are for making.",
+    },
+    why: [
+      "Ask a vague question and AI gives a vague, cheerful answer. Ask for categories and numbers and it has to look at what actually happened.",
+      "Treat its numbers as rough. It can only count what it can see, so check anything that surprises you before you change how you work.",
+    ],
+    tryThis:
+      "Next time an AI chat or project drags on, ask: “Look back over this. How much of your work was making something new, and how much was fixing earlier mistakes?” If fixing wins, start a fresh chat with a clearer request.",
+  },
+  {
     slug: "ask-which-rules-it-broke",
     title: "Ask your AI which of your instructions it didn’t follow",
     description:
