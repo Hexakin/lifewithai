@@ -8,7 +8,7 @@
  *   approved - Jonathan kept the matching X draft. The page works by direct link
  *              (so the X post's first reply never 404s) but is unlisted and noindex.
  *   live     - the X post is out. Listed on /tips, in the nav and the sitemap.
- * Hermes flips these with HQ\\harvest\\lwai_tips.py, driven by the content queue.
+ * The hourly "Hillmade X Sync" task (HQ\\harvest\\sync.py) flips these with lwai_tips.py, driven by the content queue.
  * Every few tips on one theme get folded into a full lesson in lessons.ts.
  */
 
