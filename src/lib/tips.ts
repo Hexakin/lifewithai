@@ -87,7 +87,8 @@ export const tips: Tip[] = [
     description:
       "When an AI project feels slow, ask it to split the time into making, checking, fixing and waiting. The numbers tell you what to change.",
     date: "2026-10-06",
-    status: "draft",
+    status: "live",
+    xPost: "https://x.com/Hexakin/status/2107433185508253914",
     story: [
       "For two days, two AI assistants built my game while I was at work and asleep. One wrote each piece, the other checked it, and nothing went in until both were happy. It sounded careful. It felt slow.",
       "After two days, only 20 of the 76 pieces were done. So I asked one of the AIs to read back through every log and tell me where the time had gone.",
