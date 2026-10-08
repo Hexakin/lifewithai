@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { CopyBlock } from "@/components/copy-block";
 import { ArrowIcon, CheckIcon, CrossIcon, PencilIcon } from "@/components/icons";
 import { JsonLd } from "@/components/json-ld";
 import { NewsletterBand } from "@/components/newsletter-band";
@@ -85,6 +86,21 @@ export default async function TipPage({ params }: TipPageProps) {
             ))}
           </section>
 
+          {tip.image ? (
+            <figure className="mt-10 lg:mt-12">
+              {/* A static image in public/; plain img keeps it simple and lets the reader open it full size. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={tip.image.src}
+                alt={tip.image.alt}
+                width={tip.image.width}
+                height={tip.image.height}
+                loading="lazy"
+                className="h-auto w-full rounded-[14px] border-2 border-ink"
+              />
+            </figure>
+          ) : null}
+
           <section className="mt-12 flex flex-col gap-5 lg:mt-14">
             <h2 className="font-serif text-[1.75rem] leading-[1.15] lg:text-4xl">Before and after</h2>
             <div className="flex flex-col gap-2.5 rounded-[14px] border border-line bg-card px-6 py-5">
@@ -130,6 +146,10 @@ export default async function TipPage({ params }: TipPageProps) {
               <p className="mt-2.5 text-xl leading-[1.55] lg:text-[1.375rem]">{tip.tryThis}</p>
             </div>
           </aside>
+
+          {tip.copyBlock ? (
+            <CopyBlock title={tip.copyBlock.title} intro={tip.copyBlock.intro} text={tip.copyBlock.text} />
+          ) : null}
 
           {tip.xPost ? (
             <p className="mt-8 text-base text-ink-soft">

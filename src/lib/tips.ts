@@ -12,6 +12,8 @@
  * Every few tips on one theme get folded into a full lesson in lessons.ts.
  */
 
+import { tipPrompts } from "./tip-prompts";
+
 export type TipStatus = "draft" | "approved" | "live";
 
 export type Tip = {
@@ -31,10 +33,54 @@ export type Tip = {
   tryThis: string;
   /** The X post this tip came from, once posted. */
   xPost?: string;
+  /** Optional picture (in public/), shown after "What happened". */
+  image?: { src: string; alt: string; width: number; height: number };
+  /** Optional long block the reader copies whole (a prompt), with a Copy button. Text lives in tip-prompts.ts. */
+  copyBlock?: { title: string; intro?: string; text: string };
 };
 
 export const tips: Tip[] = [
   // Newest first.
+  {
+    slug: "let-claude-pick-its-setup",
+    title: "Let your Claude work out its own best setup",
+    description:
+      "I tested 10 ways of splitting work between Claude models, judged blind. Here’s what won, and a prompt that makes your Claude write rules for how you work.",
+    date: "2026-10-08",
+    status: "draft",
+    story: [
+      "I promised a write-up on Opus as orchestrator with cheaper workers. So I tested it: 10 setups, five kinds of real work with hidden answer keys, judged blind by Opus 5.5 and Grok 4.7. Then I compared my results with what Anthropic and the published research say.",
+      "Short version: one strong agent (Opus 5.5) doing the whole job matched or beat every team on quality. Multi-agent teams save usage, and time when a job has many similar pieces. Broad research is the exception, where a team can win but costs far more. Haiku 5.5 on its own got 83 to 98% of Opus’s score for 14 to 30% of the cost.",
+      "But your work isn’t mine. So instead of my exact rules, here’s a prompt you give to your own Claude. It reviews your own sessions and writes rules for how you work.",
+    ],
+    before: {
+      label: "One rule for everyone",
+      text: "“Opus as orchestrator, Sonnet as workers, for everything.”",
+      result: "In my blind test, that team never beat one Opus doing the whole job, and it was the slowest and the most expensive.",
+    },
+    after: {
+      label: "Rules from your own work",
+      text: "“Review my recent sessions. Then write rules for which model, workers and effort I should use for each kind of job. Don’t apply anything until I say go.”",
+      result: "Your Claude writes rules from the work you actually do, plus one test to prove them on a real job of yours. The full prompt is below.",
+    },
+    why: [
+      "No setup wins everywhere. In my test, one strong agent was best for coding and writing, a team only helped when a job had many similar pieces, and published research found teams win at broad research. Which of those matters depends on the jobs you actually give your AI.",
+      "So the prompt starts from the evidence, checks it against your own sessions, asks you the two things transcripts can’t show (quality or usage first, and whether you hit your limits), and then waits for your go.",
+    ],
+    tryThis:
+      "Start a new session with Opus 5.5 on medium or high effort, paste the prompt below, and read its table before you reply “go”.",
+    image: {
+      src: "/tips/let-claude-pick-its-setup.png",
+      alt: "Blind test results: quality scores out of 10 for Opus alone, Sonnet alone, Haiku alone, Opus with Haiku workers and Opus with Sonnet workers across five jobs, with cost compared with Opus alone, and four recommendations.",
+      width: 1600,
+      height: 1310,
+    },
+    copyBlock: {
+      title: "The prompt",
+      intro: "Paste all of it into a new chat or Claude Code session. It asks before it reads anything, and nothing changes until you reply “go”.",
+      text: tipPrompts["let-claude-pick-its-setup"],
+    },
+  },
   {
     slug: "ask-where-the-time-went",
     title: "Ask your AI where the time went",
