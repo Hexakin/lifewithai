@@ -48,6 +48,7 @@ export const tips: Tip[] = [
       "I tested 10 ways of splitting work between Claude models, judged blind. Here’s what won, and a prompt that makes your Claude write rules for how you work.",
     date: "2026-10-08",
     status: "live",
+    xPost: "https://x.com/Hexakin/status/2108227625613205949",
     story: [
       "I promised a write-up on Opus as orchestrator with cheaper workers. So I tested it: 10 setups, five kinds of real work with hidden answer keys, judged blind by Opus 5.5 and Grok 4.7. Then I compared my results with what Anthropic and the published research say.",
       "Short version: one strong agent (Opus 5.5) doing the whole job matched or beat every team on quality. Multi-agent teams save usage, and time when a job has many similar pieces. Broad research is the exception, where a team can win but costs far more. Haiku 5.5 on its own got 83 to 98% of Opus’s score for 14 to 30% of the cost.",
