@@ -42,6 +42,35 @@ export type Tip = {
 export const tips: Tip[] = [
   // Newest first.
   {
+    slug: "claim-your-max-api-credit",
+    title: "Claim the free API credit in your Claude Max plan",
+    description:
+      "Claude Max now includes $100 to $200 a month of Claude API credit. Here’s what it covers, how to claim it, and the trap that stops Claude Code working.",
+    date: "2026-10-16",
+    status: "draft",
+    story: [
+      "Claude Max plans now come with monthly credit for the Claude API: $100 a month on Max 5x and $200 on Max 20x. It doesn’t cover Claude Code, and it doesn’t roll over, so whatever you don’t use each month is gone.",
+      "I claimed mine and moved my small background jobs onto it, the ones that were quietly eating my Claude Code limits. My nightly digest of the day’s work used about 17 cents of allowance a night through Claude Code. As a plain API call it costs about 3 cents. A morning scout that reads my work and pitches post ideas costs about 11 cents, and my video tool’s titles and descriptions cost a fraction of a cent.",
+      "Setting it up cost me an evening, mostly because of one trap. Here’s how to skip it.",
+    ],
+    before: {
+      label: "Background jobs on your plan",
+      text: "Every small scheduled job runs through Claude Code.",
+      result: "Each one eats into the same limits you need for the work you actually sit and watch.",
+    },
+    after: {
+      label: "Background jobs on the free credit",
+      text: "Small jobs call the Claude API directly, with a key from the Console organisation you linked to your plan.",
+      result: "My nightly digest went from about 17 cents of allowance to about 3 cents of free credit, and my Claude Code limits are left for building.",
+    },
+    why: [
+      "The credit is separate money for the Claude API, the Agent SDK, Managed Agents and the playground. Claude Code still runs on your plan’s limits, so moving small, repetitive jobs off Claude Code frees those limits up.",
+      "The trap: don’t set your API key (ANTHROPIC_API_KEY) for your whole computer. Claude Code picks it up, tries to pay with the credit, and stops with “Credit balance too low”, because the credit doesn’t cover Claude Code. Give the key only to the jobs that use it. And choose your Console organisation carefully: your plan links to one, and you can’t change it yourself. Make each project its own workspace with a spend limit, so one runaway job can’t use the whole month.",
+    ],
+    tryThis:
+      "On claude.ai, go to Settings > Billing, find API credits, and link a Console organisation. Then open Billing in the Console and look under Promotional credits for your balance and when it runs out. Max 5x, Max 20x and Team plans qualify; Free and Pro don’t.",
+  },
+  {
     slug: "let-claude-pick-its-setup",
     title: "Let your Claude work out its own best setup",
     description:
