@@ -46,8 +46,8 @@ export const tips: Tip[] = [
     title: "Claim the free API credit in your Claude Max plan",
     description:
       "Claude Max now includes $100 to $200 a month of Claude API credit. Here’s what it covers, how to claim it, and the trap that stops Claude Code working.",
-    date: "2026-10-16",
-    status: "draft",
+    date: "2026-10-15",
+    status: "live",
     story: [
       "Claude Max plans now come with monthly credit for the Claude API: $100 a month on Max 5x and $200 on Max 20x. It doesn’t cover Claude Code, and it doesn’t roll over, so whatever you don’t use each month is gone.",
       "I claimed mine and moved my small background jobs onto it, the ones that were quietly eating my Claude Code limits. My nightly digest of the day’s work used about 17 cents of allowance a night through Claude Code. As a plain API call it costs about 3 cents. A morning scout that reads my work and pitches post ideas costs about 11 cents, and my video tool’s titles and descriptions cost a fraction of a cent.",
