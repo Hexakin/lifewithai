@@ -17,23 +17,38 @@ export const statusLabel: Record<AppStatus, string> = {
   released: "Out now",
 };
 
+// Summaries are the launch-strip lines on hillmade.uk's front page
+// (Brand/hillmade-uk/app/page.tsx), so the two sites say the same thing.
 export const apps: App[] = [
   {
-    slug: "talk-to-text",
-    name: "Talk to text",
-    nameNote: "Name to come",
-    platform: "Platforms to be confirmed",
-    status: "in-the-works",
+    // Strip line approved by Jonathan, 17 Oct 2026.
+    slug: "aether",
+    name: "Aether",
+    platform: "Android",
+    status: "released",
     summary:
-      "Speak, and your words appear as text you can use. Built to be simple enough that you never need to read a manual.",
+      "Talk, and clean British English lands in whatever box you’re typing in.",
+    href: "https://hillmade.uk/aether",
   },
   {
+    // Strip line published at Jonathan's word, 17 Oct 2026.
     slug: "wandwork",
     name: "Wandwork",
-    nameNote: "Working name",
     platform: "Android",
-    status: "in-the-works",
+    status: "released",
     summary:
-      "Control your phone by casting spells. Say the words, and your phone does the rest.",
+      "Say a spell, flick your phone, and the magic happens. For young witches and wizards, with a Parent Lock.",
+    href: "https://hillmade.uk/wandwork",
+  },
+  {
+    // AI DRAFT (Claude), 17 Oct 2026: the strip line is still an AI draft on
+    // hillmade.uk, and the platform is from hillmade.uk/no-live. Jonathan to approve.
+    slug: "no-live",
+    name: "No Live",
+    platform: "Chrome, Edge, Brave and Firefox on a computer",
+    status: "released",
+    summary:
+      "Stops every live stream on YouTube, live TV like BBC News included. Videos, clips and replays still play.",
+    href: "https://hillmade.uk/no-live",
   },
 ];

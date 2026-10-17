@@ -189,7 +189,7 @@ export default function HomePage() {
               All apps
             </ArrowLink>
           </div>
-          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:mt-16 lg:gap-6">
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-6">
             {apps.map((app) => (
               <AppCard key={app.slug} app={app} tone="navy" />
             ))}

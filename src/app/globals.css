@@ -60,8 +60,9 @@ body {
   color: var(--ink);
 }
 
+/* Set --focus-ring on a section whose background is tomato, or the ring vanishes. */
 :focus-visible {
-  outline: 3px solid var(--tomato);
+  outline: 3px solid var(--focus-ring, var(--tomato));
   outline-offset: 3px;
 }
 

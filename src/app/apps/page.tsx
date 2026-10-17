@@ -4,10 +4,12 @@ import { container, Eyebrow } from "@/components/ui";
 import { apps } from "@/lib/apps";
 import { pageMeta } from "@/lib/metadata";
 
+// AI DRAFT (Claude), 17 Oct 2026: description names the three released apps
+// in hillmade.uk's own phrases; Jonathan to approve.
 export const metadata = pageMeta({
   title: "Apps",
   description:
-    "Simple apps for everyday life, built with AI: a talk-to-text app and Wandwork, spell-casting voice control for Android.",
+    "Simple apps for everyday life, built with AI: Aether, voice dictation for Android; Wandwork, to cast spells at your phone; and No Live, which blocks live streams on YouTube in your browser.",
   path: "/apps",
 });
 
@@ -30,7 +32,7 @@ export default function AppsPage() {
       </section>
 
       <section
-        className={`${container} grid gap-4 pb-14 md:grid-cols-2 lg:gap-6 lg:pb-20`}
+        className={`${container} grid gap-4 pb-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 lg:pb-20`}
       >
         {apps.map((app) => (
           <AppCard key={app.slug} app={app} />

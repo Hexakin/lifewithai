@@ -7,7 +7,7 @@ export function NewsletterBand() {
   return (
     <div
       id="newsletter"
-      className="grid scroll-mt-28 gap-8 rounded-[1.25rem] bg-tomato px-6 py-9 text-card lg:grid-cols-12 lg:items-center lg:gap-x-6 lg:rounded-3xl lg:px-20 lg:py-18"
+      className="grid scroll-mt-28 gap-8 rounded-[1.25rem] bg-tomato px-6 py-9 text-card [--focus-ring:var(--card)] lg:grid-cols-12 lg:items-center lg:gap-x-6 lg:rounded-3xl lg:px-20 lg:py-18"
     >
       <div className="flex flex-col gap-4 lg:col-span-6 lg:gap-5">
         <Eyebrow tone="inherit">Free, by email</Eyebrow>
