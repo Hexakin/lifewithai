@@ -4,8 +4,6 @@ import { container, Eyebrow } from "@/components/ui";
 import { apps } from "@/lib/apps";
 import { pageMeta } from "@/lib/metadata";
 
-// AI DRAFT (Claude), 17 Oct 2026: description names the three released apps
-// in hillmade.uk's own phrases; Jonathan to approve.
 export const metadata = pageMeta({
   title: "Apps",
   description:

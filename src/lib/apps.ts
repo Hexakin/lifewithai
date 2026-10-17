@@ -41,8 +41,6 @@ export const apps: App[] = [
     href: "https://hillmade.uk/wandwork",
   },
   {
-    // AI DRAFT (Claude), 17 Oct 2026: the strip line is still an AI draft on
-    // hillmade.uk, and the platform is from hillmade.uk/no-live. Jonathan to approve.
     slug: "no-live",
     name: "No Live",
     platform: "Chrome, Edge, Brave and Firefox on a computer",
