@@ -84,6 +84,17 @@ export default async function TipPage({ params }: TipPageProps) {
                 {p}
               </p>
             ))}
+            {tip.links ? (
+              <ul className="flex flex-col gap-2 text-lg leading-[1.6] lg:text-xl">
+                {tip.links.map((link) => (
+                  <li key={link.href}>
+                    <a href={link.href} className="underline underline-offset-4" target="_blank" rel="noopener">
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </section>
 
           {tip.image ? (

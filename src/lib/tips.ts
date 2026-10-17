@@ -33,6 +33,8 @@ export type Tip = {
   tryThis: string;
   /** The X post this tip came from, once posted. */
   xPost?: string;
+  /** Optional links, listed at the end of "What happened". */
+  links?: { label: string; href: string }[];
   /** Optional picture (in public/), shown after "What happened". */
   image?: { src: string; alt: string; width: number; height: number };
   /** Optional long block the reader copies whole (a prompt), with a Copy button. Text lives in tip-prompts.ts. */
@@ -41,6 +43,53 @@ export type Tip = {
 
 export const tips: Tip[] = [
   // Newest first.
+  {
+    slug: "build-no-live-with-claude",
+    title: "How I built a YouTube live-stream blocker with Claude in one evening",
+    description:
+      "My first message asked for the wrong thing. Claude checked the rules, changed the plan and had it working in under an hour. What I asked, and how it was tested.",
+    date: "2026-10-17",
+    status: "approved",
+    story: [
+      "On 15 October, YouTube announced that BBC News now streams live on YouTube in the UK. I pasted the announcement into Claude Code and asked for a way to block BBC content on YouTube, on as many devices as possible, so people could say they don’t need a TV licence. My message is below.",
+      "Claude didn’t start building. It checked TV Licensing’s own rules first and told me a BBC-only blocker wouldn’t do the job. You need a licence to watch any channel live, on any service. Sky News already streams live on YouTube all day, so blocking the BBC leaves the gap open. And BBC clips and uploads never needed a licence anyway.",
+      "So it suggested blocking every live stream on YouTube instead, and said up front that the YouTube apps on phones and TVs can’t be covered. I said yes. About 40 minutes later it was built and tested, and by midnight two different AIs had checked it for security problems. It’s called No Live, and it’s free.",
+    ],
+    links: [
+      { label: "No Live: what it does and how to install it", href: "https://hillmade.uk/no-live" },
+      { label: "The code, free and open source, on GitHub", href: "https://github.com/Hexakin/no-live" },
+      { label: "Do you need a TV licence? Check on TV Licensing", href: "https://www.tvlicensing.co.uk/check-if-you-need-one" },
+    ],
+    before: {
+      label: "The build on its own",
+      text: "“Block BBC content on YouTube.”",
+      result: "An AI builds exactly that. It looks finished, and it doesn’t do the job: every other channel’s live stream still needs a licence.",
+    },
+    after: {
+      label: "The build, plus why",
+      text: "The same request, plus the reason: “so they can legitimately say ‘I don’t need it’.”",
+      result: "Claude checked the rule behind the reason, found the plan wouldn’t work, and suggested the version that does.",
+    },
+    why: [
+      "The reason gives the AI something to check the plan against. “Block the BBC” can only be built. “So people don’t need a licence” can be checked against the real rules, and that’s where the first plan fell apart.",
+      "Then the plan came in three layers before any code. Stop live streams in the data YouTube hands its player. Take live tiles off the lists. And stop anything live that still starts playing. Each layer catches what the one before misses, and each can be tested on its own.",
+      "And it was tested on real YouTube, in Edge, with a control run first: without No Live, the BBC News live stream played for 9 seconds, so a pass means something. With it, all 13 checks pass and live streams play for 0 seconds. That proves it in Edge and Chrome on a computer. It hasn’t been tried on a real iPhone yet, and YouTube changes its pages, so it will need fixes now and then.",
+      "What it doesn’t do is said first, at the top of the instructions. It doesn’t decide whether you need a TV licence: that depends on everything you watch, and anything on BBC iPlayer needs one. It doesn’t work inside the YouTube apps, and it doesn’t touch other sites.",
+    ],
+    tryThis:
+      "Next time you ask an AI to build or set up something, add one line on why you want it. Then add: “Before you start, check this will actually do that, and tell me if it won’t.”",
+    image: {
+      src: "/tips/build-no-live-with-claude.png",
+      alt: "A YouTube player, black, with the message: Live streams are blocked in this browser (No Live). From a real test in Edge.",
+      width: 822,
+      height: 463,
+    },
+    copyBlock: {
+      title: "My first message",
+      intro: "Word for word, typos and all, with one line of my opinion of the BBC cut, marked [...]. It’s short and it isn’t a plan. What mattered was the last line: the reason.",
+      text: tipPrompts["build-no-live-with-claude"],
+    },
+  },
   {
     slug: "claim-your-max-api-credit",
     title: "Claim the free API credit in your Claude Max plan",
