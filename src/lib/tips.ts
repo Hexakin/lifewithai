@@ -49,7 +49,8 @@ export const tips: Tip[] = [
     description:
       "My first message asked for the wrong thing. Claude checked the rules, changed the plan and had it working in under an hour. What I asked, and how it was tested.",
     date: "2026-10-17",
-    status: "approved",
+    status: "live",
+    xPost: "https://x.com/Hexakin/status/2111508235345592371",
     story: [
       "On 15 October, YouTube announced that BBC News now streams live on YouTube in the UK. I pasted the announcement into Claude Code and asked for a way to block BBC content on YouTube, on as many devices as possible, so people could say they don’t need a TV licence. My message is below.",
       "Claude didn’t start building. It checked TV Licensing’s own rules first and told me a BBC-only blocker wouldn’t do the job. You need a licence to watch any channel live, on any service. Sky News already streams live on YouTube all day, so blocking the BBC leaves the gap open. And BBC clips and uploads never needed a licence anyway.",
